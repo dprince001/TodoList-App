@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=League+Spartan:wght@400;500;700&family=Roboto&family=Roboto+Slab:wght@400;500&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>ToDo App</title>
+</head>
+<body>
+    
+    <header>
+        <div>
+            <p>TODO <br> LIST</p>
+        
+            <label class="switch">
+                <input type="checkbox" class="checkbox">
+                    <span class="slider"></span>
+            </label>
+
+        </div>
+        
+    </header>
+
+    <main>
+
+        <section class="container container-all" id="all">
+            <div class="section--links">
+                <ul>
+                    <li><a href="#" class="link link-all">All</a></li>
+                    <li><a href="#" class="link link-active">Active</a></li>
+                    <li><a href="#" class="link link-completed">Completed</a></li>
+                    <li>
+                     <a href="#todo--page">
+                            <button><span><img src="./img/cross.png" alt=""></span> New task</button>
+                        </a> 
+                    </li>
+                </ul>
+            </div>
+
+            <div class="todo--list">
+                <ul class="todo--items">
+                    <!-- <li id="item-0">
+                        <input type="checkbox" name="" class="check">
+                        <p class="todo-title">%title%</p>
+                        <div>
+                            <img src="./img/delete.png" id="del-btn">
+                        </div>
+                    </li> -->
+                </ul>
+
+                <ul class="active-items hidden">
+                    <!-- <li id="item-0">
+                        <p class="todo-title">%title%</p>
+                    </li> -->
+                </ul>
+
+                <ul class="completed-items hidden">
+                    <!-- <li id="item-0">
+                        <p class="todo-title">%title%</p>
+                    </li> -->
+                </ul>
+
+                <div class="items--left__container">
+                    <p><span class="items-left">0</span> items left</p>
+                    <a>Clear completed</a>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <section id="todo--page">
+            <div class="homepage">
+                <a href="index.html"><img src="./img/Vector 9.png" alt=""></a>
+            </div>
+    
+            <section>
+                <div class="task--todo">
+                    <div class="task--title">Task todo</div>
+                    <div class="task--text">
+                        <input type="text" class="task" placeholder="Enter your task title...">
+                    </div>
+                </div>
+            </section>
+    
+            <section>
+                <div class="task--description">
+                    <p class="description--title">Description</p>
+                    <div class="description--text">
+                        <input type="text" class="description" placeholder="Describe your event in few words...">
+                    </div>
+                </div>
+    
+                <a href="" class="btn"><button>Done</button></a>
+            </section>
+        </section>
+    </main>
+
+
+
+
+    <script src="main.js"></script>
+
+</body>
+</html>

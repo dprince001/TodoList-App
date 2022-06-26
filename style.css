@@ -81,7 +81,7 @@ header > div {
 }
 
 .switch input:checked + .slider {
-    background-color: rgb(28, 28, 56);
+    background-color: rgb(76, 76, 129);
 }
 
 .switch input:checked + .slider::before {
@@ -259,7 +259,7 @@ section {
 toggled styles
 */
 .change-bg-color {
-    background-color: rgb(28, 28, 56) !important;
+    background-color: rgb(76, 76, 129) !important;
     transition: 350ms;
     color: #d3d3d3 !important;
 }
@@ -277,7 +277,7 @@ toggled styles
 }
 
 .shadow {
-    box-shadow: 0 0 1rem 1rem rgba(17, 17, 34, 0.6);
+    box-shadow: 0 0 1rem 1rem rgba(37, 37, 73, 0.5);
 }
 
 

@@ -11,6 +11,8 @@ class NewTask {
 let allItems = [];
 let active, completed;
 
+// allItems[index].isChecked === false ? allItems[index].isChecked = true : allItems[index].isChecked = false;
+
 
 const mainUL = document.querySelector('.todo--items');
 let inputTitle = document.querySelector('.task');
@@ -79,21 +81,22 @@ function addItem() {
 
 // event delegation for clicking
 mainUL.addEventListener('click', (e) => {
-    let index;
 
     if(e.target.className.includes('check')) {
-        let itemID, idSplit;
+        let itemID, idSplit, Id;
         itemID = e.target.parentNode.id; 
         // console.log(itemID);
         idSplit = itemID.split('-');
-        index = +idSplit[1];
-        // console.log(index);
+        Id = +idSplit[1];
 
-        allItems[index].isChecked === false ? allItems[index].isChecked = true : allItems[index].isChecked = false;
+        const arr = allItems.map(cur => cur.id);
+
+        allItems[arr.indexOf(Id)].isChecked === false ? allItems[arr.indexOf(Id)].isChecked = true : allItems[arr.indexOf(Id)].isChecked = false;
+
 
         // strike through
         let titles = Array.from(document.querySelectorAll('.todo-title'));
-        titles[index].classList.toggle('strike');
+        titles[arr.indexOf(Id)].classList.toggle('strike');
 
         active = allItems.filter(cur => {
             return cur.isChecked === false;
@@ -127,18 +130,28 @@ mainUL.addEventListener('click', (e) => {
         }
         if(index !== -1) {
             allItems.splice(index, 1);
+
+            function delElseWhere(arr) {
+                if(arr.findIndex(cur => cur.id === Id) !== -1) {
+                    arr.splice(arr.findIndex(cur => cur.id === Id) ,1);
+                }
+            }
+            delElseWhere(active);
+            delElseWhere(completed);
         }
         itemsLeft(allItems);
 
         document.getElementById(el).remove();
 
-        // remove el in active and completed
-
     }
 });
 
 function itemsLeft(currArr) {
-    document.querySelector('.items-left').textContent = currArr.length;
+    if(currArr.length > 0) {
+        document.querySelector('.items-left').textContent = currArr.length;
+    } else {
+        document.querySelector('.items-left').textContent = '0';
+    }
 } 
 
 
@@ -157,6 +170,8 @@ activeUL.classList.add('hidden');
 completedUL.classList.add('hidden');
 
 activeLink.addEventListener('click', () => {
+    // clear dom
+    activeUL.innerHTML = '';
     displayFn(active, activeUL);
 
     allUL.classList.add('hidden');
@@ -164,9 +179,7 @@ activeLink.addEventListener('click', () => {
     activeUL.classList.remove('hidden');
 
     // display active items left
-    if(active.length > 0) {
         itemsLeft(active);
-    }
 });
 
 allLink.addEventListener('click', () => {
@@ -178,6 +191,8 @@ allLink.addEventListener('click', () => {
 })
 
 completedLink.addEventListener('click', () => {
+    // clear dom
+    completedUL.innerHTML = '';
     displayFn(completed, completedUL);
 
     allUL.classList.add('hidden');
@@ -185,9 +200,7 @@ completedLink.addEventListener('click', () => {
     completedUL.classList.remove('hidden');
 
     // display completed items
-    if(completed.length > 0) {
         itemsLeft(completed);
-    }
 });
 
 
@@ -197,6 +210,7 @@ const bgToggle = document.querySelector('.checkbox');
 bgToggle.addEventListener('click', () => {
     document.querySelector('body').classList.toggle('change-bg-color');
     document.querySelector('.container').classList.toggle('change-bg-color');
+    document.querySelector('.container').classList.toggle('shadow');
 });
 
 

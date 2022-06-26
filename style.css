@@ -81,7 +81,7 @@ header > div {
 }
 
 .switch input:checked + .slider {
-    background-color: rgb(104, 103, 103);
+    background-color: rgb(28, 28, 56);
 }
 
 .switch input:checked + .slider::before {
@@ -194,11 +194,6 @@ main {
     .section--links .link {
         padding: 0 1rem;
     }
-    /* .container {
-        width: 100%;
-        margin: auto;
-        padding: 4rem 1rem 0;
-    } */
 }
 
 
@@ -208,15 +203,11 @@ main {
 
 #todo--page {
     padding: 4rem;
-    /* margin-top: 15rem; */
+    margin-top: 3rem;
 }
 
 section {
     margin-bottom: 3rem;
-}
-
-.homepage {
-    margin-bottom: 3.5rem;
 }
 
 .task--text input,
@@ -264,15 +255,11 @@ section {
     background-color: var(--green-light);
 }
 
-.padding-left {
-    /* padding-left: 1.5rem; */
-}
-
 /* 
 toggled styles
 */
 .change-bg-color {
-    background-color: rgb(104, 103, 103) !important;
+    background-color: rgb(28, 28, 56) !important;
     transition: 350ms;
     color: #d3d3d3 !important;
 }
@@ -289,14 +276,16 @@ toggled styles
     text-decoration: line-through;
 }
 
+.shadow {
+    box-shadow: 0 0 1rem 1rem rgba(17, 17, 34, 0.6);
+}
+
 
 
 /* hidden webpages */
 .hidden {
     display: none;
     visibility: hidden;
-    /* width: 0;
-    height: 0; */
     position: relative;
     z-index: -1; 
 }
